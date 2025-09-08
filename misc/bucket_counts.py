@@ -16,7 +16,7 @@ def process_files(indir, outfile, d, N):
 
     for fpath in files:
         print(f"Processing {fpath} ...")
-        with open(fpath, "r", newline="") as f:
+        with open(fpath, "r") as f:
             reader = csv.reader(f)
             for row in reader:
                 if len(row) < 3:
