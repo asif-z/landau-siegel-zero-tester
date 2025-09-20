@@ -100,7 +100,9 @@ int main(int argc, char** argv)
     arb_init(c);
     arb_set_str(c, "0.1", prec);
 
-    long ds[] = {-15,-11,-8,-7,-4,-3 ,5 ,8 ,12 ,13 ,17};
+    long ds[] = {
+    -9827797387,
+    };
     //loop through all d
     for (int i=0; i<sizeof(ds)/sizeof(long); i++)
     {
