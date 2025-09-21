@@ -7,7 +7,8 @@ enum Preset {
     largeX1,
     smallX2,
     mediumX2,
-    largeX2
+    largeX2,
+    hugeX2
   };
 
 void initializeLambda(enum Preset preset, arb_t lambda, arb_t phi, arb_t E, long prec);
