@@ -10,6 +10,8 @@
 #include <assert.h>
 #include <flint/long_extras.h>
 
+// Tests the functions in compute.c
+
 //total number of primes precomputed
 #define lenPrime 5000001
 //FLINT precision to use

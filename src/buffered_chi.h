@@ -7,6 +7,8 @@
 #ifndef BUFFERED_CHI_H
 #define BUFFERED_CHI_H
 
+// Functions useful for reading precomputed values of the Kronecker symbol in "chi.txt"
+
 typedef struct buffered_chi {
     bool* chi_table; //array of precomputed values of the Kronecker symbol
     // the dimensions of the array

@@ -10,7 +10,7 @@
 //preset for which value of lambda to use
 enum Preset preset = largeX1;
 
-//Computes the zeta and L terms for a small list of d values. Used for debugging and checking how badly some moduli fail
+//For a small list of d values, this computes the zeta sum \sum_{p} (\log p) \sum_{k=1}^\infty \frac{1}{p^{1+r}} and the L sum \sum_{p} (\log p) \sum_{k=1}^\infty \frac{\chi(p)}{p^{1+r}}, as well as the right side of equation (8) in the paper. Used for debugging and checking how badly some moduli fail
 
 //read a list of primes
 int read_primes(long lenPrime, long* primes)
@@ -36,9 +36,6 @@ int read_primes(long lenPrime, long* primes)
 
 int main(int argc, char** argv)
 {
-    arb_t a;
-    arb_init(a);
-    arb_log_ui(a,4294967289, 70);
     //Constants
 
     //len of prime

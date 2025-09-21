@@ -8,7 +8,7 @@
 #include "presets.h"
 
 /*
- * Uses clusters to verify that L(s,\chi_d) does not have a Landau-Siegel zero for d read from a file
+ * Uses clusters to verify that L(s,\chi_d) does not have a Landau-Siegel zero for all d in input.txt
  */
 
 #define JOB_TAG 1

@@ -10,6 +10,8 @@
 #include "primes.h"
 #include "buffered_chi.h"
 
+// Functions used to explicitly violate the inequality of equation (8) in the paper, for a given value of d
+
 typedef struct compute_config
 {
     long N0; //the maximum number of primes we will sum up to

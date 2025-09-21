@@ -4,6 +4,8 @@
 #include "compute.h"
 #include "presets.h"
 
+// Single-thread version of main_by_file.c
+
 #define MAX_NUMBERS 100000  // Change this as needed
 
 //number of bits of precision to use

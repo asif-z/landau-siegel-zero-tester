@@ -4,6 +4,8 @@
 #include "../src/primes.h"
 #include <assert.h>
 
+// Tests the functions in primes.c
+
 int main(int argc, char* argv[])
 {
     primeiter primes;

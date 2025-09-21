@@ -1,10 +1,10 @@
 #include <stdio.h>
-
 #include "../src/buffered_chi.h"
 #include "../src/primes.h"
 #include <assert.h>
 #include <flint/long_extras.h>
 
+// tests the functions in buffered_chi.c
 
 #define rows 10000
 #define cols 104729
@@ -15,9 +15,8 @@ int main(int argc, char* argv[])
     chi_init(&chi, rows, cols, "input/chi.txt");
 
     primeiter primes;
-    printf("aaaaaaaaaaaa ");
     primeiter_init(&primes, "input/primes.txt", 50000);
-    for (int q = -100; q < 100; q++)
+    for (long q = -100000000; q < 100000000; q++)
     {
         do
         {

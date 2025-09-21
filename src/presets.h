@@ -1,6 +1,8 @@
 #ifndef PRESETS_H
 #define PRESETS_H
 
+// presets of optimized values of lambda and the corresponding phi and E values. Given some number of primes we want to sum, we have presets for the optimal choice of lambda
+
 enum Preset {
     smallX1,
     mediumX1,

@@ -1,6 +1,8 @@
 #include <flint/arb.h>
 #include "../src/presets.h"
 
+// presets of optimized values of lambda and the corresponding phi and E values. Given some number of primes we want to sum, we have presets for the optimal choice of lambda
+
 void initializeLambda(enum Preset preset, arb_t lambda, arb_t phi, arb_t E, long prec) {
     // c = 0.1
     //small X (pi(X)~10000, X~104729)

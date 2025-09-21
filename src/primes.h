@@ -2,6 +2,8 @@
 #ifndef PRIMES_H
 #define PRIMES_H
 
+// Functions for reading a precomputed list of primes from primes.txt
+
 typedef struct primeiter {
     long* arr; //array of primes
     long index; //current index

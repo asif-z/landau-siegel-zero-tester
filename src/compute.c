@@ -1,7 +1,9 @@
 
 #include "compute.h"
 
-// calculates the right side of equation (5) in the paper
+// Functions used to explicitly violate the inequality of equation (8) in the paper, for a given value of d
+
+// calculates the right side of equation (7) in the paper
 void compute_rhs(compute_config *compute_c, long d, arb_t rhs)
 {
     //init var
@@ -53,6 +55,7 @@ void compute_rhs(compute_config *compute_c, long d, arb_t rhs)
     arb_clear(top);
 }
 
+// precomputes the sum corresponding to zeta every checkDistance primes
 void compute_zeta_sum(compute_config *compute_c) {
     compute_c->zetaSums = malloc(compute_c->N0/compute_c->checkDistance*sizeof(arb_t));
 

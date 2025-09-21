@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include "primes.h"
 
+// Functions for reading a precomputed list of primes from primes.txt
+
 //reads a precomputed list of primes
 int primeiter_init(primeiter* primes, const char* filename, long size)
 {

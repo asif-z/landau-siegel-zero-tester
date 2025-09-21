@@ -7,6 +7,8 @@
 #include<unistd.h>
 #include <stdbool.h>
 
+// precomputes the Kronecker symbol (d/p)_K for all primes up to lenPrime and 0<=d<p, and stores the results in chi.txt
+
 //read a list of primes
 int read_primes(long lenPrime, long* primes)
 {
@@ -57,10 +59,10 @@ int main(int argc, char** argv)
         for(int q=1; q<p; q++){
             int chi = n_jacobi(q, p);
             if(chi==1){
-                fprintf(outfile, "R");
+                fprintf(outfile, "R"); // R for residue
             }
             else{
-                fprintf(outfile, "N");
+                fprintf(outfile, "N"); // N for nonresidue
             }
         }
         fprintf(outfile, "\n");
