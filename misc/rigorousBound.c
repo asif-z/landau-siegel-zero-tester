@@ -32,7 +32,7 @@ int main(int argc, char** argv)
     arb_t lambda;
 
     arb_init(lambda);
-    arb_set_str(lambda, "1.1", prec);
+    arb_set_str(lambda, "1.2", prec);
     arb_init(logQ);
     arb_init(r);
     arb_log_ui(logQ, 10000000000, prec);
@@ -79,10 +79,10 @@ int main(int argc, char** argv)
         arb_sub(P, first, second, prec);
         arb_add(P, P, third, prec);
 
-        // set Pdiv = P/2^(k+2)
+        // set Pdiv = P/2^(k+3)
         arb_t Pdiv;
         arb_init(Pdiv);
-        arb_div_ui(Pdiv, P, (int)pow(2,k+2), prec);
+        arb_div_ui(Pdiv, P, (int)pow(2,k+3), prec);
 
         // set Cterm = logC[k-1])/2
         arb_t Cterm;
