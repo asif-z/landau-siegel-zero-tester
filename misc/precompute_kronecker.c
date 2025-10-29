@@ -38,7 +38,6 @@ int main(int argc, char** argv)
     const long lenPrime = 10000;
 
     FILE* outfile;
-    int count = 0;
     outfile = fopen("chi.txt", "wb");
     if (outfile == NULL)
     {

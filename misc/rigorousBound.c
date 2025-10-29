@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <flint/arb.h>
 
+// Calculates the right side of Theorem 5.3 rigorously for a given value of lambda
+
 // sets output = |a + b*e^{i\theta}|^2
 void norm(arb_t output, arb_t a, arb_t b, arb_t theta, long prec) {
     arb_t real;
@@ -50,7 +52,7 @@ int main(int argc, char** argv)
     arb_init(pi);
     arb_const_pi(pi, prec);
 
-    //Calculate C's
+    //Calculate C_2, C_4, C_8
     arb_t C0;
     arb_init(C0);
     arb_set_str(C0, "2.97655", prec);
