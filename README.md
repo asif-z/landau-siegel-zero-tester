@@ -59,7 +59,7 @@ After installing the requirements and building the project, you can run the comp
 
 ### 1. Precompute chi
 
-Run 'misc/precompute_kronecker.c' to generate `chi.txt`. After the file is generated, move it to `/input` dirctory.
+Run `misc/precompute_kronecker.c` to generate `chi.txt`. After the file is generated, move it to `/input` dirctory.
 
 ### 2. Choose the version
 
