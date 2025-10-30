@@ -1,3 +1,5 @@
+#draw a histgram from a data source
+
 import csv
 import matplotlib.pyplot as plt
 

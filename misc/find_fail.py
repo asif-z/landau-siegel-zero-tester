@@ -1,3 +1,5 @@
+#find the failed modulus from output_rank_*.csv
+
 import os
 import csv
 import re

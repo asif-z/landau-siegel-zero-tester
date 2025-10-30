@@ -1,3 +1,5 @@
+#generate a number of primes needed statistics from output_rank_*.csv
+
 import os
 import glob
 import csv

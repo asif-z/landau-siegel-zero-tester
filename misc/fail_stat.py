@@ -1,3 +1,5 @@
+#generate a number of failed statistics from output_rank_*.csv
+
 import os
 import glob
 import csv
