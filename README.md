@@ -41,7 +41,7 @@ $$
 \beta_1 > 1 - \frac{c}{\log q} 
 $$
 
-with $c = \tfrac{1}{10}$.
+with $c = \tfrac{1}{5}$.
 
 ## Requirements
 
