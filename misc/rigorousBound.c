@@ -422,9 +422,9 @@ int main(int argc, char** argv)
     // calculates K4
     arb_t K4;
     arb_init(K4);
-    arb_t K4_1; // the first line in J4
+    arb_t K4_1; // the first line in K4
     arb_init(K4_1);
-    arb_t K4_2; // the second line in J4
+    arb_t K4_2; // the second line in K4
     arb_init(K4_2);
     arb_log(logterm, f11_8, prec);
     arb_mul_ui(temp2, logterm, 2, prec);
@@ -451,9 +451,9 @@ int main(int argc, char** argv)
     // calculates K5
     arb_t K5;
     arb_init(K5);
-    arb_t K5_1; // the first line in J5
+    arb_t K5_1; // the first line in K4
     arb_init(K5_1);
-    arb_t K5_2; // the second line in J5
+    arb_t K5_2; // the second line in K4
     arb_init(K5_2);
     arb_log(logterm, f98, prec);
     arb_mul_ui(temp2, logterm, 2, prec);
