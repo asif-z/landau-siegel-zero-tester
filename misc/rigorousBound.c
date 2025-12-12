@@ -312,7 +312,7 @@ int main(int argc, char** argv)
     arb_div(rho, rho, pi, prec);
     arb_neg(rho, rho);
 
-    // sets J0 equal to the J0 integral's contribution to K1
+    // Calculates J0
     arb_t J0;
     arb_init(J0);
     arb_t sqrt15; //equal to \sqrt{15}
@@ -344,26 +344,26 @@ int main(int argc, char** argv)
     arb_div(J0, J0, pi, prec);
     arb_div(J0, J0, r1, prec);
 
-    // calculates J1
-    arb_t J1;
-    arb_init(J1);
+    // calculates K1
+    arb_t K1;
+    arb_init(K1);
     arb_add_ui(logterm, r, 1, prec);
     arb_mul_ui(logterm, logterm, 2, prec);
     arb_log(logterm, logterm, prec);
     arb_div_ui(temp1, logterm, 8, prec);
     arb_mul_ui(temp2, logC[2], 2, prec);
-    arb_add(J1, temp1, temp2, prec);
-    arb_mul(J1, J1, B1, prec);
-    arb_div(J1, J1, pi, prec);
-    arb_div(J1, J1, r18, prec);
+    arb_add(K1, temp1, temp2, prec);
+    arb_mul(K1, K1, B1, prec);
+    arb_div(K1, K1, pi, prec);
+    arb_div(K1, K1, r18, prec);
 
-    // calculates J2
-    arb_t J2;
-    arb_init(J2);
-    arb_t J2_1; // the first line in J2
-    arb_init(J2_1);
-    arb_t J2_2; // the second line in J2
-    arb_init(J2_2);
+    // calculates K2
+    arb_t K2;
+    arb_init(K2);
+    arb_t K2_1; // the first line in K2
+    arb_init(K2_1);
+    arb_t K2_2; // the second line in K2
+    arb_init(K2_2);
     arb_mul_ui(logterm, r, 2, prec);
     arb_add(logterm, logterm, f17_8, prec);
     arb_log(logterm, logterm, prec);
@@ -375,7 +375,7 @@ int main(int argc, char** argv)
     arb_div(temp1, temp1, r1, prec);
     arb_div(temp2, B2, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
-    arb_mul(J2_1, temp1, temp3, prec);
+    arb_mul(K2_1, temp1, temp3, prec);
 
     arb_mul_ui(temp1, logC[2], 16, prec);
     arb_add(temp3, temp1, logterm, prec);
@@ -384,17 +384,17 @@ int main(int argc, char** argv)
     arb_div(temp1, temp1, r1, prec);
     arb_div(temp2, B2, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
-    arb_mul(J2_2, temp1, temp3, prec);
-    arb_neg(J2_2, J2_2);
-    arb_add(J2, J2_1, J2_2, prec);
+    arb_mul(K2_2, temp1, temp3, prec);
+    arb_neg(K2_2, K2_2);
+    arb_add(K2, K2_1, K2_2, prec);
 
-    // calculates J3
-    arb_t J3;
-    arb_init(J3);
-    arb_t J3_1; // the first line in J3
-    arb_init(J3_1);
-    arb_t J3_2; // the second line in J3
-    arb_init(J3_2);
+    // calculates K3
+    arb_t K3;
+    arb_init(K3);
+    arb_t K3_1; // the first line in K3
+    arb_init(K3_1);
+    arb_t K3_2; // the second line in K3
+    arb_init(K3_2);
     arb_mul_ui(logterm, r, 2, prec);
     arb_add(logterm, logterm, f19_8, prec);
     arb_log(logterm, logterm, prec);
@@ -406,7 +406,7 @@ int main(int argc, char** argv)
     arb_div(temp1, temp1, r1, prec);
     arb_div(temp2, B3, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
-    arb_mul(J3_1, temp1, temp3, prec);
+    arb_mul(K3_1, temp1, temp3, prec);
 
     arb_mul_ui(temp1, logC[1], 8, prec);
     arb_add(temp3, temp1, logterm, prec);
@@ -415,17 +415,17 @@ int main(int argc, char** argv)
     arb_div(temp1, temp1, r1, prec);
     arb_div(temp2, B3, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
-    arb_mul(J3_2, temp1, temp3, prec);
-    arb_neg(J3_2, J3_2);
-    arb_add(J3, J3_1, J3_2, prec);
+    arb_mul(K3_2, temp1, temp3, prec);
+    arb_neg(K3_2, K3_2);
+    arb_add(K3, K3_1, K3_2, prec);
 
-    // calculates J4, without reflection terms
-    arb_t J4;
-    arb_init(J4);
-    arb_t J4_1; // the first line in J4
-    arb_init(J4_1);
-    arb_t J4_2; // the second line in J4
-    arb_init(J4_2);
+    // calculates K4
+    arb_t K4;
+    arb_init(K4);
+    arb_t K4_1; // the first line in J4
+    arb_init(K4_1);
+    arb_t K4_2; // the second line in J4
+    arb_init(K4_2);
     arb_log(logterm, f11_8, prec);
     arb_mul_ui(temp2, logterm, 2, prec);
     arb_mul_ui(temp1, logC[0], 8, prec);
@@ -435,8 +435,8 @@ int main(int argc, char** argv)
     arb_div(temp1, temp1, r1, prec);
     arb_div(temp2, B4, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
-    arb_mul(J4_1, temp1, temp3, prec);
-    arb_neg(J4_1, J4_1);
+    arb_mul(K4_1, temp1, temp3, prec);
+    arb_neg(K4_1, K4_1);
 
     arb_mul_ui(temp1, logC[1], 8, prec);
     arb_add(temp3, temp1, logterm, prec);
@@ -445,16 +445,16 @@ int main(int argc, char** argv)
     arb_div(temp1, temp1, r1, prec);
     arb_div(temp2, B4, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
-    arb_mul(J4_2, temp1, temp3, prec);
-    arb_add(J4, J4_1, J4_2, prec);
+    arb_mul(K4_2, temp1, temp3, prec);
+    arb_add(K4, K4_1, K4_2, prec);
 
-    // calculates J5, without reflection terms
-    arb_t J5;
-    arb_init(J5);
-    arb_t J5_1; // the first line in J5
-    arb_init(J5_1);
-    arb_t J5_2; // the second line in J5
-    arb_init(J5_2);
+    // calculates K5
+    arb_t K5;
+    arb_init(K5);
+    arb_t K5_1; // the first line in J5
+    arb_init(K5_1);
+    arb_t K5_2; // the second line in J5
+    arb_init(K5_2);
     arb_log(logterm, f98, prec);
     arb_mul_ui(temp2, logterm, 2, prec);
     arb_mul_ui(temp1, logC[1], 16, prec);
@@ -462,8 +462,8 @@ int main(int argc, char** argv)
     arb_div(temp1, A5, pi, prec);
     arb_div(temp2, B5, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
-    arb_mul(J5_1, temp1, temp3, prec);
-    arb_neg(J5_1, J5_1);
+    arb_mul(K5_1, temp1, temp3, prec);
+    arb_neg(K5_1, K5_1);
     arb_mul_ui(temp1, logC[2], 16, prec);
     arb_add(temp3, temp1, logterm, prec);
     arb_mul(temp1, r34, A5, prec);
@@ -471,12 +471,12 @@ int main(int argc, char** argv)
     arb_div(temp1, temp1, r1, prec);
     arb_div(temp2, B5, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
-    arb_mul(J5_2, temp1, temp3, prec);
-    arb_add(J5, J5_1, J5_2, prec);
+    arb_mul(K5_2, temp1, temp3, prec);
+    arb_add(K5, K5_1, K5_2, prec);
 
-    //calculates the reflection term
-    arb_t JR;
-    arb_init(JR);
+    //calculates the K_R
+    arb_t KR;
+    arb_init(KR);
     arb_add_ui(temp1, r, 2, prec);
     arb_neg(temp2, r1);
     norm(temp3, temp1, temp2, theta3, prec);
@@ -492,7 +492,7 @@ int main(int argc, char** argv)
     arb_add(temp2, B4, B5, prec);
     arb_div(temp2, temp2, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
-    arb_mul(JR, temp1, temp3, prec);
+    arb_mul(KR, temp1, temp3, prec);
 
     // calculates the O(1) terms from zeta
     arb_t zetaTerms;
@@ -514,12 +514,12 @@ int main(int argc, char** argv)
     // add up all the O(1) contributions
     arb_t K;
     arb_init(K);
-    arb_add(K, J0, J1, prec);
-    arb_add(K, K, J2, prec);
-    arb_add(K, K, J3, prec);
-    arb_add(K, K, J4, prec);
-    arb_add(K, K, J5, prec);
-    arb_add(K, K, JR, prec);
+    arb_add(K, J0, K1, prec);
+    arb_add(K, K, K2, prec);
+    arb_add(K, K, K3, prec);
+    arb_add(K, K, K4, prec);
+    arb_add(K, K, K5, prec);
+    arb_add(K, K, KR, prec);
     arb_add(K, K, zetaTerms, prec);
 
     // add up everything
@@ -551,23 +551,23 @@ int main(int argc, char** argv)
     printf("J0: ");
     printf(arb_get_str(J0, decimalPlaces, 0));
     printf("\n");
-    printf("J1: ");
-    printf(arb_get_str(J1, decimalPlaces, 0));
+    printf("K1: ");
+    printf(arb_get_str(K1, decimalPlaces, 0));
     printf("\n");
-    printf("J2: ");
-    printf(arb_get_str(J2, decimalPlaces, 0));
+    printf("K2: ");
+    printf(arb_get_str(K2, decimalPlaces, 0));
     printf("\n");
-    printf("J3: ");
-    printf(arb_get_str(J3, decimalPlaces, 0));
+    printf("K3: ");
+    printf(arb_get_str(K3, decimalPlaces, 0));
     printf("\n");
-    printf("J4: ");
-    printf(arb_get_str(J4, decimalPlaces, 0));
+    printf("K4: ");
+    printf(arb_get_str(K4, decimalPlaces, 0));
     printf("\n");
-    printf("J5: ");
-    printf(arb_get_str(J5, decimalPlaces, 0));
+    printf("K5: ");
+    printf(arb_get_str(K5, decimalPlaces, 0));
     printf("\n");
-    printf("JR: ");
-    printf(arb_get_str(JR, decimalPlaces, 0));
+    printf("KR: ");
+    printf(arb_get_str(KR, decimalPlaces, 0));
     printf("\n");
     printf("total: ");
     printf(arb_get_str(total, decimalPlaces, 0));
