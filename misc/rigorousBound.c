@@ -229,63 +229,63 @@ int main(int argc, char** argv)
     arb_sin(sin4, theta4, prec);
     arb_cos(cos4, theta4, prec);
 
-    // sets i_k=i_(k-1)k and I_k=I_(k-1)k to the integrals in the paper
-    arb_t i1;
-    arb_init(i1);
-    arb_sub_ui(i1, sin1, 1, prec);
-    arb_t i2;
-    arb_init(i2);
-    arb_sub(i2, sin2, sin1, prec);
-    arb_t i3;
-    arb_init(i3);
-    arb_sub(i3, sin3, sin2, prec);
-    arb_t i4;
-    arb_init(i4);
-    arb_sub(i4, sin4, sin3, prec);
-    arb_t i5;
-    arb_init(i5);
-    arb_neg(i5, sin4);
+    // sets A_k=A(k-1,k) and B_k=B(k-1,k), the integrals in the paper
+    arb_t A1;
+    arb_init(A1);
+    arb_sub_ui(A1, sin1, 1, prec);
+    arb_t A2;
+    arb_init(A2);
+    arb_sub(A2, sin2, sin1, prec);
+    arb_t A3;
+    arb_init(A3);
+    arb_sub(A3, sin3, sin2, prec);
+    arb_t A4;
+    arb_init(A4);
+    arb_sub(A4, sin4, sin3, prec);
+    arb_t A5;
+    arb_init(A5);
+    arb_neg(A5, sin4);
 
-    arb_t I1;
-    arb_init(I1);
+    arb_t B1;
+    arb_init(B1);
     arb_div_ui(temp1, pi, 2, prec);
     arb_sub(temp1, temp1, theta1, prec);
     arb_mul(temp2, sin1, cos1, prec);
-    arb_sub(I1, temp1, temp2, prec);
-    arb_div_ui(I1, I1, 2, prec);
+    arb_sub(B1, temp1, temp2, prec);
+    arb_div_ui(B1, B1, 2, prec);
 
-    arb_t I2;
-    arb_init(I2);
+    arb_t B2;
+    arb_init(B2);
     arb_mul(temp1, sin1, cos1, prec);
     arb_mul(temp2, sin2, cos2, prec);
     arb_sub(temp2, temp1, temp2, prec);
     arb_sub(temp1, theta1, theta2, prec);
-    arb_add(I2, temp1, temp2, prec);
-    arb_div_ui(I2, I2, 2, prec);
+    arb_add(B2, temp1, temp2, prec);
+    arb_div_ui(B2, B2, 2, prec);
 
-    arb_t I3;
-    arb_init(I3);
+    arb_t B3;
+    arb_init(B3);
     arb_mul(temp1, sin2, cos2, prec);
     arb_mul(temp2, sin3, cos3, prec);
     arb_sub(temp2, temp1, temp2, prec);
     arb_sub(temp1, theta2, theta3, prec);
-    arb_add(I3, temp1, temp2, prec);
-    arb_div_ui(I3, I3, 2, prec);
+    arb_add(B3, temp1, temp2, prec);
+    arb_div_ui(B3, B3, 2, prec);
 
-    arb_t I4;
-    arb_init(I4);
+    arb_t B4;
+    arb_init(B4);
     arb_mul(temp1, sin3, cos3, prec);
     arb_mul(temp2, sin4, cos4, prec);
     arb_sub(temp2, temp1, temp2, prec);
     arb_sub(temp1, theta3, theta4, prec);
-    arb_add(I4, temp1, temp2, prec);
-    arb_div_ui(I4, I4, 2, prec);
+    arb_add(B4, temp1, temp2, prec);
+    arb_div_ui(B4, B4, 2, prec);
 
-    arb_t I5;
-    arb_init(I5);
+    arb_t B5;
+    arb_init(B5);
     arb_mul(temp1, sin4, cos4, prec);
-    arb_add(I5, theta4, temp1, prec);
-    arb_div_ui(I5, I5, 2, prec);
+    arb_add(B5, theta4, temp1, prec);
+    arb_div_ui(B5, B5, 2, prec);
 
     //set phi to be the coefficient on logq
     arb_t phi;
@@ -293,7 +293,7 @@ int main(int argc, char** argv)
     arb_div(phi, r, r1, prec);
     arb_mul(phi, phi, sin1, prec);
     arb_neg(phi, phi);
-    arb_div(temp1, I1, r18, prec);
+    arb_div(temp1, B1, r18, prec);
     arb_div_ui(temp1, temp1, 8, prec);
     arb_add(phi, phi, temp1, prec);
     arb_mul(temp2, sin1, cos1, prec);
@@ -305,8 +305,8 @@ int main(int argc, char** argv)
     //set rho to be the coefficient on log(1+1/r)
     arb_t rho;
     arb_init(rho);
-    arb_div(temp1, i1, r1, prec);
-    arb_div(temp2, I1, r18, prec);
+    arb_div(temp1, A1, r1, prec);
+    arb_div(temp2, B1, r18, prec);
     arb_add(rho, temp2, temp1, prec);
     arb_mul_ui(rho, rho, 2, prec);
     arb_div(rho, rho, pi, prec);
@@ -353,7 +353,7 @@ int main(int argc, char** argv)
     arb_div_ui(temp1, logterm, 8, prec);
     arb_mul_ui(temp2, logC[2], 2, prec);
     arb_add(J1, temp1, temp2, prec);
-    arb_mul(J1, J1, I1, prec);
+    arb_mul(J1, J1, B1, prec);
     arb_div(J1, J1, pi, prec);
     arb_div(J1, J1, r18, prec);
 
@@ -370,19 +370,19 @@ int main(int argc, char** argv)
     arb_mul_ui(temp2, logterm, 2, prec);
     arb_mul_ui(temp1, logC[1], 16, prec);
     arb_add(temp3, temp1, temp2, prec);
-    arb_mul(temp1, r18, i2, prec);
+    arb_mul(temp1, r18, A2, prec);
     arb_div(temp1, temp1, pi, prec);
     arb_div(temp1, temp1, r1, prec);
-    arb_div(temp2, I2, pi, prec);
+    arb_div(temp2, B2, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
     arb_mul(J2_1, temp1, temp3, prec);
 
     arb_mul_ui(temp1, logC[2], 16, prec);
     arb_add(temp3, temp1, logterm, prec);
-    arb_mul(temp1, r14, i2, prec);
+    arb_mul(temp1, r14, A2, prec);
     arb_div(temp1, temp1, pi, prec);
     arb_div(temp1, temp1, r1, prec);
-    arb_div(temp2, I2, pi, prec);
+    arb_div(temp2, B2, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
     arb_mul(J2_2, temp1, temp3, prec);
     arb_neg(J2_2, J2_2);
@@ -401,19 +401,19 @@ int main(int argc, char** argv)
     arb_mul_ui(temp2, logterm, 2, prec);
     arb_mul_ui(temp1, logC[0], 8, prec);
     arb_add(temp3, temp1, temp2, prec);
-    arb_mul(temp1, r14, i3, prec);
+    arb_mul(temp1, r14, A3, prec);
     arb_div(temp1, temp1, pi, prec);
     arb_div(temp1, temp1, r1, prec);
-    arb_div(temp2, I3, pi, prec);
+    arb_div(temp2, B3, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
     arb_mul(J3_1, temp1, temp3, prec);
 
     arb_mul_ui(temp1, logC[1], 8, prec);
     arb_add(temp3, temp1, logterm, prec);
-    arb_mul(temp1, r12, i3, prec);
+    arb_mul(temp1, r12, A3, prec);
     arb_div(temp1, temp1, pi, prec);
     arb_div(temp1, temp1, r1, prec);
-    arb_div(temp2, I3, pi, prec);
+    arb_div(temp2, B3, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
     arb_mul(J3_2, temp1, temp3, prec);
     arb_neg(J3_2, J3_2);
@@ -430,20 +430,20 @@ int main(int argc, char** argv)
     arb_mul_ui(temp2, logterm, 2, prec);
     arb_mul_ui(temp1, logC[0], 8, prec);
     arb_add(temp3, temp1, temp2, prec);
-    arb_mul(temp1, r34, i4, prec);
+    arb_mul(temp1, r34, A4, prec);
     arb_div(temp1, temp1, pi, prec);
     arb_div(temp1, temp1, r1, prec);
-    arb_div(temp2, I4, pi, prec);
+    arb_div(temp2, B4, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
     arb_mul(J4_1, temp1, temp3, prec);
     arb_neg(J4_1, J4_1);
 
     arb_mul_ui(temp1, logC[1], 8, prec);
     arb_add(temp3, temp1, logterm, prec);
-    arb_mul(temp1, r12, i4, prec);
+    arb_mul(temp1, r12, A4, prec);
     arb_div(temp1, temp1, pi, prec);
     arb_div(temp1, temp1, r1, prec);
-    arb_div(temp2, I4, pi, prec);
+    arb_div(temp2, B4, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
     arb_mul(J4_2, temp1, temp3, prec);
     arb_add(J4, J4_1, J4_2, prec);
@@ -459,17 +459,17 @@ int main(int argc, char** argv)
     arb_mul_ui(temp2, logterm, 2, prec);
     arb_mul_ui(temp1, logC[1], 16, prec);
     arb_add(temp3, temp1, temp2, prec);
-    arb_div(temp1, i5, pi, prec);
-    arb_div(temp2, I5, pi, prec);
+    arb_div(temp1, A5, pi, prec);
+    arb_div(temp2, B5, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
     arb_mul(J5_1, temp1, temp3, prec);
     arb_neg(J5_1, J5_1);
     arb_mul_ui(temp1, logC[2], 16, prec);
     arb_add(temp3, temp1, logterm, prec);
-    arb_mul(temp1, r34, i5, prec);
+    arb_mul(temp1, r34, A5, prec);
     arb_div(temp1, temp1, pi, prec);
     arb_div(temp1, temp1, r1, prec);
-    arb_div(temp2, I5, pi, prec);
+    arb_div(temp2, B5, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
     arb_mul(J5_2, temp1, temp3, prec);
     arb_add(J5, J5_1, J5_2, prec);
@@ -485,11 +485,11 @@ int main(int argc, char** argv)
     arb_log(temp1, temp1, prec);
     arb_mul_ui(temp1, temp1, 2, prec);
     arb_sub(temp3, temp3, temp1, prec);
-    arb_add(temp1, i4, i5, prec);
+    arb_add(temp1, A4, A5, prec);
     arb_mul(temp1, r12, temp1, prec);
     arb_div(temp1, temp1, pi, prec);
     arb_div(temp1, temp1, r1, prec);
-    arb_add(temp2, I4, I5, prec);
+    arb_add(temp2, B4, B5, prec);
     arb_div(temp2, temp2, pi, prec);
     arb_add(temp1, temp1, temp2, prec);
     arb_mul(JR, temp1, temp3, prec);
