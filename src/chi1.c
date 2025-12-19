@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
         {
             printf("======%ld======\n", q);
         }
-        long prec = 200;
+        long prec = 30;
 
         arb_t rhs;
         arb_t log;
