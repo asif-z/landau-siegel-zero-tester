@@ -2,20 +2,26 @@
 // Created by kris on 12/19/25.
 //
 
+#include <mpi.h>
 #include <flint/acb_dirichlet.h>
 #include <flint/acb.h>
 #include <flint/dirichlet.h>
-#include <flint//arb.h>
+#include <flint/arb.h>
 
-int main(int argc, char* argv[])
+
+int compute(int size, int rank)
 {
     long q = 2;
     while (q<=1000000)
     {
-
         if (q%1000 == 0)
         {
             printf("======%ld======\n", q);
+        }
+        if (q%size != rank)
+        {
+            q++;
+            continue;
         }
         long prec = 30;
 
@@ -64,4 +70,17 @@ int main(int argc, char* argv[])
         while (dirichlet_char_next(chi, G) >= 0);
         q++;
     }
+    printf("Finish at %d\n",rank);
+    return 0;
+}
+
+int main(int argc, char* argv[])
+{
+    MPI_Init(&argc, &argv);
+    int rank, size;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+    compute(size, rank);
+    MPI_Finalize();
+    return 0;
 }
