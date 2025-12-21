@@ -86,6 +86,7 @@ bool is_valid_d(long d)
         3);
 }
 
+//Master thread to distribute tasks
 int master_run(int size)
 {
     printf("Master started\n");
@@ -95,7 +96,7 @@ int master_run(int size)
     MPI_Status status;
     int active_workers = size - 1; // Track active workers
 
-    // Assign initial jobs or stop signals
+    // Initiate jobs
     for (int i = 1; i < size; i++)
     {
         if (cur < qMax)
@@ -105,13 +106,13 @@ int master_run(int size)
         }
         else
         {
-            // Send stop immediately if no jobs left
+            // Stop if no jobs left
             MPI_Send(NULL, 0, MPI_LONG_LONG_INT, i, STOP_TAG, MPI_COMM_WORLD);
             active_workers--;
         }
     }
 
-    // Manage active workers
+    // Manage workers
     while (active_workers > 0)
     {
         int dummy;
@@ -135,6 +136,7 @@ int master_run(int size)
     return 0;
 }
 
+//Worker threads to run computations
 int worker_run(int rank, char foldername[64])
 {
     MPI_Status status;
@@ -236,7 +238,6 @@ int main(int argc, char** argv)
 
     char foldername[FOLDERNAME_LEN];
 
-    // Rank 0 creates folder, others receive name
     create_and_broadcast_folder(foldername, rank);
 
     MPI_Barrier(MPI_COMM_WORLD);

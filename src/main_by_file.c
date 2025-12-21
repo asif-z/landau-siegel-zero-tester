@@ -80,12 +80,14 @@ int init_variables(compute_config* compute_c)
     return 0;
 }
 
+// determines whether d is a fundamental discriminant (without the square-free conditions)
 bool is_valid_d(long d)
 {
     return d != 0 && d != 1 && (d % 16 == 8 || d % 16 == 12 || d % 16 == -8 || d % 16 == -4 || d % 4 == 1 || d % 4 == -
         3);
 }
 
+//Master thread to distribute tasks
 int master_run(int size)
 {
     printf("Master started\n");
@@ -94,7 +96,7 @@ int master_run(int size)
     MPI_Status status;
     int active_workers = size - 1; // Track active workers
 
-    // Assign initial jobs or stop signals
+    // Initiate jobs
     for (int i = 1; i < size; i++)
     {
         if (cur < lineMax)
@@ -104,13 +106,13 @@ int master_run(int size)
         }
         else
         {
-            // Send stop immediately if no jobs left
+            // Stop if no jobs left
             MPI_Send(NULL, 0, MPI_LONG_LONG_INT, i, STOP_TAG, MPI_COMM_WORLD);
             active_workers--;
         }
     }
 
-    // Manage active workers
+    // Manage workers
     while (active_workers > 0)
     {
         int dummy;
@@ -134,6 +136,7 @@ int master_run(int size)
     return 0;
 }
 
+//Worker threads to run computations
 int worker_run(int rank, char foldername[64])
 {
     MPI_Status status;
@@ -162,7 +165,7 @@ int worker_run(int rank, char foldername[64])
         return 1;
     }
 
-    // Open input file once
+    // Open input file
     FILE* infile = fopen("input/input.txt", "r");
     if (!infile)
     {
@@ -184,7 +187,6 @@ int worker_run(int rank, char foldername[64])
         {
             if (!fgets(line, sizeof(line), infile))
             {
-                // Reached EOF early? Stop processing.
                 break;
             }
             current_line++;
@@ -257,7 +259,6 @@ int main(int argc, char** argv)
 
     char foldername[FOLDERNAME_LEN];
 
-    // Rank 0 creates folder, others receive name
     create_and_broadcast_folder(foldername, rank);
 
     MPI_Barrier(MPI_COMM_WORLD);
