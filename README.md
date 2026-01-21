@@ -57,15 +57,21 @@ Make sure these are installed and available in your system path.
 
 After installing the requirements and building the project, you can run the computations as follows.
 
-### 1. Precompute chi
+### 1. Precomputation
 
 Run `misc/precompute_kronecker.c` to generate `chi.txt`. After the file is generated, move it to `/input` dirctory.
+
+We have provided a list of the first 5761455 primes in `input/primes.txt`. If you wish to use more primes than this, i.e. if you wish to set $N_0>5761455$, then you must generate your own list of primes up to $N_0$, call the file `primes.txt` and move it to the `/input` dirctory.
 
 ### 2. Choose the version
 
 Edit `src/CMakeLists.txt` to choose the version of the main program to run (either main.c, main_by_file.c, or main_test_ind.c).
 
-### 3. Build the project
+### 3. Edit parameters
+
+Set the parameters of the program to your use case by changing the values defined by `#define`. In particular, modify `N00`, `checkDistance`, `qMax`, `c0`, and `preset`.
+
+### 4. Build the project
 From the repository root:  
 ```bash
 mkdir build
@@ -74,13 +80,13 @@ cmake ..
 cmake --build .
 ```
 
-### 4. Run with MPI
+### 5. Run with MPI
 From the repository root use the following mpi command to run (change 10 to desired number of MPI processes).
 ```bash
 mpirun -np 10 ./build/src/mpiTest
 ```
 
-### 5. Using `main_by_file.c`
+### 6. Using `main_by_file.c`
 If one wants to run the verification on a list of $q$ in a file, name the file to `input.txt` and store it in the `/input` 
 dirctory.
 
