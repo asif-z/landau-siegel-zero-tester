@@ -17,6 +17,8 @@
 //dimensions of the Kronecker symbol array
 #define rows 10000
 #define cols 104729
+//zero-free region constant
+#define c0 "0.2"
 //preset for which value of lambda to use
 enum Preset preset = smallX1;
 
@@ -38,7 +40,7 @@ int init_variables(compute_config *compute_c)
 
     //Set up zero-free region
     arb_init(compute_c->c);
-    arb_set_str(compute_c->c, "0.1", prec0);
+    arb_set_str(compute_c->c, c0, prec0);
 
     //init var
     arb_t lambda;

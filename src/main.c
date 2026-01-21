@@ -8,7 +8,7 @@
 #include "presets.h"
 
 /*
- * Uses clusters to verify that L(s,\chi_d) does not have a Landau-Siegel zero for |d|<=qMax
+ * Uses clusters to verify that L(s,\chi_d) does not have a Landau-Siegel zero for |d|<=qMax. Edit the parameters below to modify the program to your use case.
  */
 
 #define JOB_TAG 1
@@ -26,7 +26,9 @@
 #define rows 10000
 #define cols 104729
 //maximum modulus used
-#define qMax 10000
+#define qMax 100000000000
+//zero-free region constant
+#define c0 "0.2"
 //range of moduli a cluster will compute before requesting more from the master process
 #define step 1000
 //preset for which value of lambda to use
@@ -51,7 +53,7 @@ int init_variables(compute_config* compute_c)
 
     //Set up zero-free region
     arb_init(compute_c->c);
-    arb_set_str(compute_c->c, "0.1", prec0);
+    arb_set_str(compute_c->c, c0, prec0);
 
     //init var
     arb_t lambda;
