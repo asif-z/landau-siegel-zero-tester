@@ -8,6 +8,8 @@
 #include <flint/dirichlet.h>
 #include <flint/arb.h>
 
+// Verifies Corollary 1.3 for q<=10^6
+
 //Main computing function
 int compute(int size, int rank)
 {
