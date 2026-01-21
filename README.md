@@ -57,9 +57,11 @@ Make sure these are installed and available in your system path.
 
 After installing the requirements and building the project, you can run the computations as follows.
 
-### 1. Precompute chi
+### 1. Precomputation
 
 Run `misc/precompute_kronecker.c` to generate `chi.txt`. After the file is generated, move it to `/input` dirctory.
+
+We have provided a list of the first 5761455 primes in `input/primes.txt`. If you wish to use more primes than this, i.e. if you wish to set N0>5761455, then you must generate your own list of primes up to N0, call the file `primes.txt` and move it to the `/input` dirctory.
 
 ### 2. Choose the version
 
