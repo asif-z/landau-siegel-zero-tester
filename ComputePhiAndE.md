@@ -1,12 +1,12 @@
 ## Computation for $\phi$ and $E$ in paper
 
-Set up $\lambda$ one wants to use
+Define $\lambda$:
 
 ```wolfram
 lambda = 1.1
 ```
 
-Set up constants as in 5.1, 5.2, $\theta$'s and $A(n,m)$'s $B(n,m)$'s as in the beginning of section 6
+Set up constants as in Proposition 5.2, as well as $\theta_i$, $A(n,m)$, and $B(n,m)$ as in the beginning of section 6
 
 ```wolfram
 r = lambda/(10 Log[10])
@@ -23,7 +23,7 @@ B = Table[
     Pi - theta[[m + 1]]}], {n, 0, 5}, {m, 0, 5}]
 ```
 
-Compute $K_2,K_3$ as in lemma 6.1
+Compute $K_2,K_3$ as in Lemma 6.1
 
 ```wolfram
 K = Table[(2^(6 - k) Log[CC[[4 - k]]] + 
@@ -35,7 +35,7 @@ K = Table[(2^(6 - k) Log[CC[[4 - k]]] +
          k + 1]] + (B[[k, k + 1]])/Pi), {k, 2, 3}]
 ```
 
-Compute $K_4,K_5$ as in lemma 6.2
+Compute $K_4,K_5$ as in Lemma 6.2
 
 ```wolfram
 KK = Table[
@@ -66,4 +66,5 @@ Compute $\phi$ as in Theorem 6.3
 ```wolfram
 phi = (r A[[2, 6]])/(Pi (r + 7/8)) + B[[1, 2]]/(Pi (8 r + 1)) + 
   B[[2, 6]]/Pi
+
 ```
