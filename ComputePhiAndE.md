@@ -1,5 +1,7 @@
 ## Computation for $\phi$ and $E$ in paper
 
+This file contains mathematica code that computes the constants in Corollary 6.4 of our paper. This is for debugging purposes; for a rigorous ball-arithmetic computation, see misc/rigorousBound.c
+
 Define $\lambda$:
 
 ```wolfram
@@ -68,3 +70,4 @@ phi = (r A[[2, 6]])/(Pi (r + 7/8)) + B[[1, 2]]/(Pi (8 r + 1)) +
   B[[2, 6]]/Pi
 
 ```
+
