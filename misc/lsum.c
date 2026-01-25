@@ -10,7 +10,8 @@
 //preset for which value of lambda to use
 enum Preset preset = largeX1;
 
-//For a small list of d values, this computes the zeta sum \sum_{p} (\log p) \sum_{k=1}^\infty \frac{1}{p^{1+r}} and the L sum \sum_{p} (\log p) \sum_{k=1}^\infty \frac{\chi(p)}{p^{1+r}}, as well as the right side of equation (8) in the paper. Used for debugging and checking how badly some moduli fail
+//For a small list of d values, this computes the zeta sum $\sum_{p\le N} \frac{\log p}{p^{\sigma}-1}$ and the L sum $\sum_{p\le N} \frac{ \chi(p)  \log p}{p^{\sigma}- \chi(p) }$, as well as the right side of equation (2.5) in the paper. Used for debugging and checking how badly some moduli fail
+//To use the program, edit the ds array to contain the d values you want to check
 
 //read a list of primes
 int read_primes(long lenPrime, long* primes)

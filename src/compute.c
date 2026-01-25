@@ -1,9 +1,9 @@
 
 #include "compute.h"
 
-// Functions used to explicitly violate the inequality of equation (8) in the paper, for a given value of d
+// Functions used to explicitly violate the inequality of equation (2.5) in the paper, for a given value of d
 
-// calculates the right side of equation (7) in the paper
+// calculates the right side of equation (2.5) in the paper
 void compute_rhs(compute_config *compute_c, long d, arb_t rhs)
 {
     //init var
@@ -116,7 +116,7 @@ void compute_zeta_sum(compute_config *compute_c) {
     arb_clear(psigma);
 }
 
-// Calculates the sum in equation (8) until the inequality is violated or the cut-off value is reached
+// Calculates the sum in equation (2.5) until the inequality is violated or the cut-off value is reached
 long compute(compute_config *compute_c, long d)
 {
     arb_t rhs;
@@ -207,7 +207,7 @@ long compute(compute_config *compute_c, long d)
     return -1;
 }
 
-// used for testing purposes. Calculates the sum in equation (8) for n primes, and then returns the sum
+// used for testing purposes. Calculates the sum in equation (2.5) for n primes, and then returns the sum
 void compute_first_n(arb_t sum, compute_config *compute_c, long d, long n)
 {
     arb_t rhs;

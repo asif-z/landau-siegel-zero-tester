@@ -3,7 +3,10 @@
 #include <stdlib.h>
 #include <flint/arb.h>
 
-// Calculates the right side of Theorem 5.3 rigorously for a given value of lambda
+// Calculates the value of E in Corollary 6.4 rigorously for a given value of lambda. Also computes the values of C_i in Proposition 5.2.
+// To use the program, edit the value of lambda0
+#define lambda0 "1.2"
+
 
 // sets output = |a + b*e^{i\theta}|^2
 void norm(arb_t output, arb_t a, arb_t b, arb_t theta, long prec) {
@@ -34,7 +37,7 @@ int main(int argc, char** argv)
     arb_t lambda;
 
     arb_init(lambda);
-    arb_set_str(lambda, "1.2", prec);
+    arb_set_str(lambda, lambda0, prec);
     arb_init(logQ);
     arb_init(r);
     arb_log_ui(logQ, 10000000000, prec);
@@ -572,7 +575,6 @@ int main(int argc, char** argv)
     printf("total: ");
     printf(arb_get_str(total, decimalPlaces, 0));
     printf("\n");
-
 
     return 0;
 }

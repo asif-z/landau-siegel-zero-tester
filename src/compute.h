@@ -10,7 +10,7 @@
 #include "primes.h"
 #include "buffered_chi.h"
 
-// Functions used to explicitly violate the inequality of equation (8) in the paper, for a given value of d
+// Functions used to explicitly violate the inequality of equation (2.5) in the paper, for a given value of d
 
 typedef struct compute_config
 {
