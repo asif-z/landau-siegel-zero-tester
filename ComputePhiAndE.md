@@ -1,4 +1,4 @@
-## Computation for $\phi$ and E in paper
+## Computation for $\phi$ and $E$ in paper
 
 Set up $\lambda$ one wants to use
 
