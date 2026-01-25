@@ -1,7 +1,7 @@
 # Landau-Siegel Zero Tester
 
-This is part of an undergraduate research project at the University of Toronto Math Department that 
-aims to verify the non-existence of Landau-Siegel zeros in the region $\beta_1 > 1-\frac{c}{\log(q)}$
+As part of a 2025 undergraduate research project at the University of Toronto Math Department, we
+aim to verify the non-existence of Landau-Siegel zeros in the region $\beta_1 > 1-\frac{c}{\log(q)}$
 for primitive quadratic characters mod $q$, with $0<q<q_{max}$. This project was funded by NSERC and 
 UTEA Undergraduate Student Research Awards. This research is also supported by Compute Canada 
 ([alliancecan.ca](https://alliancecan.ca/en)), where most of our computation was performed.
