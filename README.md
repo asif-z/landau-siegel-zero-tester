@@ -61,7 +61,10 @@ After installing the requirements and building the project, you can run the comp
 
 Run `misc/precompute_kronecker.c` to generate `chi.txt`. After the file is generated, move it to `/input` dirctory.
 
-We have provided a list of the first 5761455 primes in `input/primes.txt`. If you wish to use more primes than this, i.e. if you wish to set $N_0>5761455$, then you must generate your own list of primes up to $N_0$, call the file `primes.txt` and move it to the `/input` dirctory. The file `primes.txt` has to contain all primes upto $N_0$, one prime a line, in increasing order. One may generate such list using [Primesieve](https://github.com/kimwalisch/primesieve).
+We have provided a list of the first 5761455 primes in `input/primes.txt`. If you wish to use more primes than this, 
+i.e. if you wish to set $N_0>5761455$, then you must generate your own list of primes up to $N_0$, call the file `primes.txt` 
+and move it to the `/input` dirctory. The file `primes.txt` has to contain all primes upto $N_0$, one prime a line, 
+in increasing order. One may generate such list using [Primesieve](https://github.com/kimwalisch/primesieve).
 
 ### 2. Choose the version
 
@@ -69,7 +72,8 @@ Edit `src/CMakeLists.txt` to choose the version of the main program to run (eith
 
 ### 3. Edit parameters
 
-Set the parameters of the program to your use case by changing the values defined by `#define`. In particular, modify `N00`, `checkDistance`, `qMax`, `c0`, and `preset`.
+Set the parameters of the program to your use case by changing the values defined by `#define`. In particular, modify `N00`, 
+`checkDistance`, `qMax`, `c0`, and `preset`.
 
 ### 4. Build the project
 From the repository root:  
@@ -88,12 +92,14 @@ mpirun -np 10 ./build/src/mpiTest
 
 ### 6. Using `main_by_file.c`
 If one wants to run the verification on a list of $q$ in a file, name the file to `input.txt` and store it in the `/input` 
-dirctory. The file `input.txt` has to contain one $q$ in each line and the lineMax constant in `main_by_file.c` has to match the line number in `input.txt`.
+dirctory. The file `input.txt` has to contain one $q$ in each line and the `lineMax` constant in `main_by_file.c` has to 
+match the line number in `input.txt`.
 
 ## Directory Structure
 
 All source code is stored in the directory `/src`. All input files are stored in the `/input` directory. 
-The `/test` directory contains all unit tests for this project. `/misc` contains helpful scripts that are not used during the main process.
+The `/test` directory contains all unit tests for this project. `/misc` contains helpful scripts that are not used 
+during the main process.
 
 
 By Rick Lu, Asif Zaman, and Haonan Zhao.
