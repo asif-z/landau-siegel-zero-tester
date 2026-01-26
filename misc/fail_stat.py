@@ -6,7 +6,7 @@ import csv
 import argparse
 from collections import Counter
 
-def process_files(indir, outfile, d, N):
+def process_files(indir, outfile, d):
     counts = Counter()
 
     def get_bucket_lower_bound(val):
@@ -40,7 +40,6 @@ if __name__ == "__main__":
     parser.add_argument("--indir", required=True, help="Directory containing output_rank_*.csv")
     parser.add_argument("--outfile", required=True, help="Output summary file")
     parser.add_argument("--d", type=int, required=True, help="Bucket size")
-    parser.add_argument("--N", type=int, required=True, help="Maximum integer value")
     args = parser.parse_args()
 
-    process_files(args.indir, args.outfile, args.d, args.N)
+    process_files(args.indir, args.outfile, args.d)
