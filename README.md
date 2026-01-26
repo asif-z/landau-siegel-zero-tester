@@ -61,7 +61,7 @@ After installing the requirements and building the project, you can run the comp
 
 Run `misc/precompute_kronecker.c` to generate `chi.txt`. After the file is generated, move it to `/input` dirctory.
 
-We have provided a list of the first 5761455 primes in `input/primes.txt`. If you wish to use more primes than this, i.e. if you wish to set $N_0>5761455$, then you must generate your own list of primes up to $N_0$, call the file `primes.txt` and move it to the `/input` dirctory.
+We have provided a list of the first 5761455 primes in `input/primes.txt`. If you wish to use more primes than this, i.e. if you wish to set $N_0>5761455$, then you must generate your own list of primes up to $N_0$, call the file `primes.txt` and move it to the `/input` dirctory. The file `primes.txt` has to contain all primes upto $N_0$, one prime a line, in increasing order. One may generate such list using [Primesieve](https://github.com/kimwalisch/primesieve).
 
 ### 2. Choose the version
 
@@ -88,7 +88,7 @@ mpirun -np 10 ./build/src/mpiTest
 
 ### 6. Using `main_by_file.c`
 If one wants to run the verification on a list of $q$ in a file, name the file to `input.txt` and store it in the `/input` 
-dirctory.
+dirctory. The file `input.txt` has to contain one $q$ in each line and the lineMax constant in `main_by_file.c` has to match the line number in `input.txt`.
 
 ## Directory Structure
 
