@@ -90,7 +90,7 @@ int main(int argc, char* argv[])
         }
     }
 
-    // Get current date and time (without seconds) for filename
+    // Get current date and time for filename
     time_t now = time(NULL);
     struct tm *t = localtime(&now);
     char filename[64];
