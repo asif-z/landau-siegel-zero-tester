@@ -26,7 +26,7 @@
 #define rows 10000
 #define cols 104729
 //maximum modulus used
-#define qMax 100000000000
+#define qMax 500000
 //zero-free region constant
 #define c0 "0.2"
 //range of moduli a cluster will compute before requesting more from the master process
@@ -82,9 +82,10 @@ int init_variables(compute_config* compute_c)
 }
 
 // determines whether d is a fundamental discriminant (without the square-free conditions)
+// Don't check anything <=400,000 as they have been checked in Platt's paper
 bool is_valid_d(long d)
 {
-    return d != 0 && d != 1 && (d % 16 == 8 || d % 16 == 12 || d % 16 == -8 || d % 16 == -4 || d % 4 == 1 || d % 4 == -
+    return (d<-400000 || d>400000) && (d % 16 == 8 || d % 16 == 12 || d % 16 == -8 || d % 16 == -4 || d % 4 == 1 || d % 4 == -
         3);
 }
 
