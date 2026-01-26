@@ -1,6 +1,6 @@
 ## Computation for $\phi$ and $E$ in paper
 
-This file contains mathematica code that computes the constants in Corollary 6.4 of our paper. This is for debugging purposes; for a rigorous ball-arithmetic computation, see misc/rigorousBound.c
+This file contains mathematica code that computes the constants in Corollary 6.4 of our paper. This is for debugging purposes; for a rigorous ball-arithmetic computation, see `misc/rigorousBound.c`
 
 Define $\lambda$:
 
