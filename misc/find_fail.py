@@ -24,7 +24,7 @@ def search_fail_in_rank_files(directory='.'):
             reader = csv.reader(f)
             for row in reader:
                 if(row[1]==keyword_lower):
-                    out.write(row[0]+"\n")
+                    out.write(row[0].lower()+"\n")
 
 
 # Run the search
