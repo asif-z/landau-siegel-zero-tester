@@ -1,10 +1,12 @@
-# Landau-Siegel Zero Tester
+# Landau-Siegel zero tester
 
-As part of a 2025 undergraduate research project at the University of Toronto Math Department, we
-aim to verify the non-existence of Landau-Siegel zeros in the region $\beta_1 > 1-\frac{c}{\log(q)}$
-for primitive quadratic characters mod $q$, with $0<q<q_{max}$. This project was funded by NSERC and 
-UTEA Undergraduate Student Research Awards. This research is also supported by Compute Canada 
-([alliancecan.ca](https://alliancecan.ca/en)), where most of our computation was performed.
+This repository is associated with the paper "Numerical computations concerning Landau-Siegel zeros" by Rick F. Lu, [Asif Zaman](www.math.toronto.edu/zaman/), and Haonan Zhao. This project was part of a 2025 undergraduate research project at the University of Toronto Math Department. We gratefully acknowledge funding by NSERC and UTEA Undergraduate Student Research Awards. This research was also supported by Compute Canada ([alliancecan.ca](https://alliancecan.ca/en)), where most of our computation was performed.
+
+Given an absolute constant $c > 0$ and primitive quadratic Dirichlet character $\chi$ modulo $q$, we provide an algorithm which shows that 
+
+$$L(\sigma,\chi) \neq 0 \quad \text{ for real } \sigma > 1-\frac{c}{\log(q)}.$$  
+
+In other words, we computationally eliminate the existence of exceptional zeros for a fixed modulus. Our code also handles all moduli $q \leq Q$ with some additional efficiencies. 
 
 ## Table of Contents
 1. [Background](#background)
@@ -15,7 +17,9 @@ UTEA Undergraduate Student Research Awards. This research is also supported by C
 ## Background
 
 Let $\chi$ be a Dirichlet character mod $q$,
-$$L(s,\chi) := \sum_{n=1}^\infty \frac{\chi(n)}{n^s}, \quad \Re(s) > 0,$$
+
+$$L(s,\chi) := \sum_{n=1}^\infty \frac{\chi(n)}{n^s}, \quad \Re(s) > 1,$$
+
 be the associated Dirichlet $L$-function, and $s = \sigma + it$ be a complex number.
 
 Landau proved that there is a constant $c > 0$ such that for all $q$,
@@ -34,14 +38,10 @@ Running this program on Compute Canada's Nibi clusters, we computationally verif
 exist for any primitive quadratic character of modulus $q \le 10^{10}$. In particular, we proved the 
 following theorem.
 
-**Theorem 1.**  
-Let $\chi$ be a primitive quadratic character of modulus $q \leq 10^{10}$. Then $L(s,\chi)$ has no real zeros $\beta_1$ in the region
+> **Theorem 1.** If $\chi$ is a primitive quadratic Dirichlet character of modulus $q \leq 10^{10}$, then
+>
+> $$L(\sigma,\chi) \neq 0 \quad \text{ for real } \sigma > 1-\frac{1}{5\log(q)}.$$  
 
-$$
-\beta_1 > 1 - \frac{c}{\log q} 
-$$
-
-with $c = \tfrac{1}{5}$.
 
 ## Requirements
 
