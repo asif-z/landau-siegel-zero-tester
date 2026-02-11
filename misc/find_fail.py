@@ -25,6 +25,8 @@ def search_fail_in_rank_files(directory='.'):
                 if(row[1].lower()==keyword_lower):
                     out.write(row[0]+"\n")
 
+    out.close()
+
 
 # Run the search
 if __name__ == '__main__':
