@@ -2,7 +2,6 @@
 
 import os
 import csv
-import re
 import glob
 import csv
 

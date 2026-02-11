@@ -30,7 +30,7 @@ def process_files(indir, outfile, d):
     # Write results
     with open(outfile, "w") as f:
         f.write("bucket_lower_bound,count\n")
-        for key in sorted(k for k in counts.keys() if k != "-1"):
+        for key in sorted(counts.keys()):
             f.write(f"{key},{counts[key]}\n")
 
     print(f"Results written to {outfile}")
