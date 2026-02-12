@@ -9,7 +9,6 @@ def search_fail_in_rank_files(directory='.'):
     out = open("output.txt","w")
 
     keyword = "fail"
-    keyword_lower = keyword.lower()
 
     print(f"Searching for '{keyword}' in output_rank_*.csv files under: {directory}")
     print("-" * 60)
@@ -21,7 +20,7 @@ def search_fail_in_rank_files(directory='.'):
         with open(fpath,"r") as f:
             reader = csv.reader(f)
             for row in reader:
-                if(row[1].lower()==keyword_lower):
+                if(row[1]==keyword):
                     out.write(row[0]+"\n")
 
     out.close()

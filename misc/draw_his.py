@@ -14,13 +14,13 @@ def draw_histogram(filename, d):
         for row in reader:
             if len(row) < 2:
                 continue
-            bucket_start = float(row[0])
-            count = float(row[1])
+            bucket_start = int(row[0])
+            count = int(row[1])
             buckets.append(bucket_start)
             counts.append(count)
 
     # Draw histogram as bar chart
-    plt.bar(buckets, counts, width=d, align="edge", edgecolor="black")
+    plt.bar(buckets, counts, width=d, align="edge")
 
     plt.xlabel("Number of Primes Needed to Violate the Inequality")
     plt.ylabel("Count")
@@ -29,5 +29,5 @@ def draw_histogram(filename, d):
 
     plt.show()
 
-
-draw_histogram("summary.csv", d=50)
+if __name__ == "__main__":
+    draw_histogram("run2.txt", d=5000)
