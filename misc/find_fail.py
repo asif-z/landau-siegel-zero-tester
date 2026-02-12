@@ -3,7 +3,6 @@
 import os
 import csv
 import glob
-import csv
 
 def search_fail_in_rank_files(directory='.'):
 
