@@ -1,6 +1,6 @@
 # Landau-Siegel zero tester
 
-This repository is associated with the paper ["Numerical computations concerning Landau-Siegel zeros"](https://arxiv.org/abs/2602.03626) by Rick F. Lu, [Asif Zaman](www.math.toronto.edu/zaman/), and Haonan Zhao. This project was part of a 2025 undergraduate research project at the University of Toronto Math Department. We gratefully acknowledge funding by NSERC and UTEA Undergraduate Student Research Awards. This research was also supported by Compute Canada ([alliancecan.ca](https://alliancecan.ca/en)), where most of our computation was performed.
+This repository is associated with the paper ["Numerical computations concerning Landau-Siegel zeros"](https://arxiv.org/abs/2602.03626) by Rick F. Lu, [Asif Zaman](https://www.math.toronto.edu/zaman/), and Haonan Zhao. This project was part of a 2025 undergraduate research project at the University of Toronto Math Department. We gratefully acknowledge funding by NSERC and UTEA Undergraduate Student Research Awards. This research was also supported by Compute Canada ([alliancecan.ca](https://alliancecan.ca/en)), where most of our computation was performed.
 
 Given an absolute constant $c > 0$ and primitive quadratic Dirichlet character $\chi$ modulo $q$, we provide an algorithm which shows that 
 
