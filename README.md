@@ -68,7 +68,7 @@ in increasing order. One may generate such list using [Primesieve](https://githu
 
 ### 2. Choose the version
 
-Edit `src/CMakeLists.txt` to choose the version of the main program to run (either main.c, main_by_file.c, or main_test_ind.c).
+Edit `src/CMakeLists.txt` to choose the version of the main program to run (either `main.c`, `main_by_file.c`, or `main_test_ind.c`).
 
 ### 3. Edit parameters
 
